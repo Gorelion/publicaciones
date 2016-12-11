@@ -1,11 +1,12 @@
-using System; 
-using System.Collections.Generic; 
-using System.Linq; 
-using Microsoft.Extensions.Logging; 
-using Publicaciones.Backend; 
-using Publicaciones.Models; 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Extensions.Logging;
+using Publicaciones.Backend;
+using Publicaciones.Models;
 
-namespace Publicaciones.Service {
+namespace Publicaciones.Service
+{
 
     /// <summary>
     /// Metodos de la interface
@@ -14,8 +15,6 @@ namespace Publicaciones.Service {
         void Add(Persona persona); 
 
         List < Persona > FindPersonas(string nombre);
-
-        List <Publicacion> Publicaciones(string rut);
 
         List <Persona> Personas();
 
@@ -82,17 +81,6 @@ namespace Publicaciones.Service {
                 .ToList(); 
         }
 
-        public List < Publicacion > Publicaciones(string rut){
-
-             Persona a = BackendContext.Personas
-            .Where(p => p.Nombre.Contains(rut))
-            .
-            
-            return null;
-            return BackendContext.Publicaciones.to;
-
-        }
-
         public List<Persona> Personas() {
             return BackendContext.Personas.ToList();
         }
@@ -120,6 +108,24 @@ namespace Publicaciones.Service {
 
             Logger.LogDebug("Inicializacion terminada :)");
         }
+
+        public List <Publicacion> Publicaciones(string rut){
+            Persona persona = (Persona) BackendContext.Personas
+                        .Where(p => p.Nombre.Contains(rut));
+            
+            List<Autor> autores = a.Autores;
+
+            List<Publicacion> lista = new List<Publicacion>();
+            foreach (Autor autorAux in autores)
+            {
+                Publicacion aux = (Publicacion) BackendContext.Publicaciones
+                                  .Where(p => p.IdAutor.Equals(autorAux.IdPublicacion));
+                salida.Add(aux);
+            }
+            
+            return lista;
+        }
+
     }
 
 }
