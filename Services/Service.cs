@@ -113,14 +113,14 @@ namespace Publicaciones.Service
             Persona persona = (Persona) BackendContext.Personas
                         .Where(p => p.Nombre.Contains(rut));
             
-            List<Autor> autores = a.Autores;
+            List<Autor> autores = persona.Autores;
 
             List<Publicacion> lista = new List<Publicacion>();
             foreach (Autor autorAux in autores)
             {
                 Publicacion aux = (Publicacion) BackendContext.Publicaciones
                                   .Where(p => p.IdAutor.Equals(autorAux.IdPublicacion));
-                salida.Add(aux);
+                lista.Add(aux);
             }
             
             return lista;
