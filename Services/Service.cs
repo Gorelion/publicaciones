@@ -15,6 +15,8 @@ namespace Publicaciones.Service {
 
         List < Persona > FindPersonas(string nombre);
 
+        List <Publicacion> Publicaciones(string rut);
+
         List <Persona> Personas();
 
         void Initialize(); 
@@ -78,6 +80,17 @@ namespace Publicaciones.Service {
                 .Where(p => p.Nombre.Contains(nombre))
                 .OrderBy(p => p.Nombre)
                 .ToList(); 
+        }
+
+        public List < Publicacion > Publicaciones(string rut){
+
+             Persona a = BackendContext.Personas
+            .Where(p => p.Nombre.Contains(rut))
+            .
+            
+            return null;
+            return BackendContext.Publicaciones.to;
+
         }
 
         public List<Persona> Personas() {
