@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace Publicaciones.Models
 {
     public class Persona
@@ -9,12 +11,12 @@ namespace Publicaciones.Models
 
         public string Apellido { get; set; }
         
-        public List<Autor> Autores { get; set; }
     }
 
     public class Publicacion
     {
-        public int IdAutor { get; set; }
+        [Key]
+        public int IdPublicacion { get; set; }
         public string Titulo { get; set; }
         public string FechaInicio { get; set; }
         public string FechaTermino { get; set; }
@@ -27,7 +29,10 @@ namespace Publicaciones.Models
     public class Autor
     {
         public string Fecha { get; set; }
+        
         public int IdPublicacion { get; set; }
+
+        public int IdPersona { get; set; }
 
     }
 }

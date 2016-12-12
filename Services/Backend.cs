@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore; 
-using Publicaciones.Models; 
+using Publicaciones.Models;
 
 namespace Publicaciones.Backend {
 
@@ -32,6 +32,20 @@ namespace Publicaciones.Backend {
         /// </summary>
         /// <returns>Link a la BD de Publicacion</returns>
         public DbSet < Publicacion > Publicaciones {get; set; }
+
+        /// <summary>
+        /// Representacion de los Autores del Backend
+        /// </summary>
+        /// <returns>Link a la BD de Autor</returns>
+        public DbSet < Autor > Autores {get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+
+            modelBuilder.Entity<Autor>().HasKey(s => new { s.IdPersona, s.IdPublicacion});
+            base.OnModelCreating(modelBuilder);
+
+        }
+
     }
 
 }

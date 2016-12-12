@@ -110,7 +110,7 @@ namespace Publicaciones.Service
         }
 
         public List <Publicacion> Publicaciones(string rut){
-            Persona persona = (Persona) BackendContext.Personas
+            /*Persona persona = (Persona) BackendContext.Personas
                         .Where(p => p.Nombre.Contains(rut)).SingleOrDefault();
             
             List<Autor> autores = persona.Autores;
@@ -126,6 +126,8 @@ namespace Publicaciones.Service
             }
             
             return lista;
+            */
+            return null;
         }
 
     }
