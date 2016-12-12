@@ -109,25 +109,16 @@ namespace Publicaciones.Service
             Logger.LogDebug("Inicializacion terminada :)");
         }
 
-        public List <Publicacion> Publicaciones(string rut){
-            /*Persona persona = (Persona) BackendContext.Personas
-                        .Where(p => p.Nombre.Contains(rut)).SingleOrDefault();
-            
-            List<Autor> autores = persona.Autores;
+        public List <Publicacion> Publicaciones(string rut){            
+            List<Publicacion> publicaciones = new List<Publicacion>();
 
-            if(autores == null) return null;
+            List<Autor> autorias = BackendContext.Autores.Where(s => s.IdPersona.Equals(rut)).ToList();
 
-            List<Publicacion> lista = new List<Publicacion>();
-            foreach (Autor autorAux in autores)
-            {
-                Publicacion aux = (Publicacion) BackendContext.Publicaciones
-                                  .Where(p => p.IdAutor.Equals(autorAux.IdPublicacion)).SingleOrDefault();
-                lista.Add(aux);
+            foreach (Autor autor in autorias){
+                Publicacion publicacion = BackendContext.Publicaciones.Where(s => s.IdPublicacion.Equals(autor.IdPublicacion)).SingleOrDefault();
+                publicaciones.Add(publicacion);
             }
-            
-            return lista;
-            */
-            return null;
+            return publicaciones;
         }
 
     }
