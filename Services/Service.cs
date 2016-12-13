@@ -154,6 +154,19 @@ namespace Publicaciones.Service
 
             this.Add(persona4);
 
+            //Se agregan las publicaciones por defecto
+            Publicacion publicacion1 = new Publicacion();
+            publicacion1.Titulo = "publicacion1";
+            this.Add(publicacion1);
+
+            Publicacion publicacion2 = new Publicacion();
+            publicacion2.Titulo = "publicacion2";
+            this.Add(publicacion2); 
+
+            Publicacion publicacion3 = new Publicacion();
+            publicacion3.Titulo = "publicacion3";
+            this.Add(publicacion3);
+
             foreach (Persona p in BackendContext.Personas) {
                 Logger.LogDebug("Persona: {0}", p); 
             }

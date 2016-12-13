@@ -60,7 +60,7 @@ namespace Publicaciones.Service {
             // Debe ser !=  de null
             Assert.True(personas != null);
 
-            // Debe haber solo 1
+            // Debe haber 4 personas
             Assert.True(personas.Count == 4);
 
             // Print de la persona
@@ -77,9 +77,18 @@ namespace Publicaciones.Service {
             Logger.LogInformation("Testing IMainService.publicaciones(string rut) ..");
             Service.Initialize();
 
-            Publicacion publicacion1 = new Publicacion();
-            publicacion1.Titulo = "publicacion1";
-            Service.Add(publicacion1);
+            //Publicaciones en la base de datos
+            List<Publicacion> publicaciones = Service.Publicaciones();
+
+            // Debe ser !=  de null
+            Assert.True(publicaciones != null);
+
+            // Debe haber 3 publicaciones
+            Assert.True(publicaciones.Count == 3);
+
+            foreach(Publicacion publicacion in publicaciones){
+                Logger.LogInformation("Publicacion: {0}", publicacion.IdPublicacion);
+            }
 
         }
 
