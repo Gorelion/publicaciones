@@ -71,6 +71,14 @@ namespace Publicaciones.Service {
             Logger.LogInformation("Test IMainService.Initialize() ok");
         }
 
+        [Fact]
+        public void publicacionesTest(){
+
+            Publicacion publicacion1 = new Publicacion();
+            
+
+        }
+
         void IDisposable.Dispose()
         {
             // Aca eliminar el Service
