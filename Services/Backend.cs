@@ -39,7 +39,9 @@ namespace Publicaciones.Backend {
         /// <returns>Link a la BD de Autor</returns>
         public DbSet < Autor > Autores {get; set; }
 
+        ///<summary>
         ///Establecimiento de la clave primaria compuesta de Autor
+        ///</summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
             modelBuilder.Entity<Autor>().HasKey(s => new { s.IdPersona, s.IdPublicacion});

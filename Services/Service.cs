@@ -109,13 +109,23 @@ namespace Publicaciones.Service
             Logger.LogDebug("Inicializacion terminada :)");
         }
 
-        public List <Publicacion> Publicaciones(string rut){            
+        ///<summary>
+        ///Metodo que obtiene las publicaciones de una persona segun el rut.
+        ///</summary>
+        /// <param name="rut"> Rut de la persona autora</param>
+        /// <returns>Lista con todas las publicaciones que hizo la persona con rut</returns>
+        public List <Publicacion> Publicaciones(string rut){   
+            //Lista vacía con las publicaciones a retornar         
             List<Publicacion> publicaciones = new List<Publicacion>();
 
+            //Se recorren todas las autorias que existen en la base de datos
             List<Autor> autorias = BackendContext.Autores.Where(s => s.IdPersona.Equals(rut)).ToList();
 
+            //Por cada autoría encontrada, 
             foreach (Autor autor in autorias){
+                //Se obtiene la publicacion involucrada en la autoria actual
                 Publicacion publicacion = BackendContext.Publicaciones.Where(s => s.IdPublicacion.Equals(autor.IdPublicacion)).SingleOrDefault();
+                //Se agrega la publicacion encontrada a la lista que se retorna
                 publicaciones.Add(publicacion);
             }
             return publicaciones;
