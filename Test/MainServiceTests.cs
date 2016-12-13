@@ -68,15 +68,6 @@ namespace Publicaciones.Service {
                 Logger.LogInformation("Persona: {0}", persona.Nombre);
             }
 
-            Logger.LogInformation("Test IMainService.Initialize() ok");
-        }
-
-        [Fact]
-        public void publicacionesTest(){
-
-            Logger.LogInformation("Testing IMainService.publicaciones(string rut) ..");
-            Service.Initialize();
-
             //Publicaciones en la base de datos
             List<Publicacion> publicaciones = Service.Publicaciones();
 
@@ -86,9 +77,21 @@ namespace Publicaciones.Service {
             // Debe haber 3 publicaciones
             Assert.True(publicaciones.Count == 3);
 
+            //print de las publicaciones
             foreach(Publicacion publicacion in publicaciones){
-                Logger.LogInformation("Publicacion: {0}", publicacion.IdPublicacion);
+                Logger.LogInformation("Publicacion: {0}", publicacion.Titulo);
             }
+
+            Logger.LogInformation("Test IMainService.Initialize() ok");
+        }
+
+        [Fact]
+        public void publicacionesTest(){
+
+            Logger.LogInformation("Testing IMainService.publicaciones(string rut) ..");
+            Service.Initialize();
+
+            
 
         }
 
