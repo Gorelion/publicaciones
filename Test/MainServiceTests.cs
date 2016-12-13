@@ -149,10 +149,58 @@ namespace Publicaciones.Service {
             Service.Add(autoria6);
 
             //se obtienen las publicaciones en las que Rodrigo figura como autor
+            List<Publicacion> publicacionesLufe = Service.Publicaciones(rutLufe);
+
+            // publicacionesLufe debe ser != null
+            Assert.True(publicacionesLufe != null);
+            //lufe solo ha sido autor de 2 publicaciones
+            Assert.True(publicacionesLufe.Count == 2);
+
+            //print de las publicaciones de Lufe
+            foreach(Publicacion publicacion in publicacionesLufe){
+                Logger.LogInformation("Publicacion de Lufe: {0}", publicacion.Titulo);
+            }
+
+            //se obtienen las publicaciones en las que Tomas figura como autor
+            List<Publicacion> publicacionesTomas = Service.Publicaciones(rutTomas);
+
+            // publicacionesLufe debe ser != null
+            Assert.True(publicacionesTomas != null);
+            //tomas solo ha sido autor de 3 publicaciones
+            Assert.True(publicacionesTomas.Count == 3);
+
+            //print de las publicaciones de tomas
+            foreach(Publicacion publicacion in publicacionesTomas){
+                Logger.LogInformation("Publicacion de Tomas: {0}", publicacion.Titulo);
+            }
+
+            //se obtienen las publicaciones en las que Franco figura como autor
+            List<Publicacion> publicacionesFranco = Service.Publicaciones(rutFranco);
+
+            // publicacionesFranco debe ser != null
+            Assert.True(publicacionesFranco != null);
+            //Franco solo ha sido autor de 1 publicacion
+            Assert.True(publicacionesFranco.Count == 1);
+
+            //print de las publicaciones de Franco
+            foreach(Publicacion publicacion in publicacionesFranco){
+                Logger.LogInformation("Publicacion de Franco: {0}", publicacion.Titulo);
+            }
+
+            //se obtienen las publicaciones en las que Rodrigo figura como autor
             List<Publicacion> publicacionesRodrigo = Service.Publicaciones(rutRodrigo);
 
+            // publicacionesRodrigo debe ser != null
+            Assert.True(publicacionesRodrigo != null);
             // Rodrigo no deberia tener publicaciones
             Assert.True(publicacionesRodrigo.Count == 0);
+
+            //print de las publicaciones de Rodrigo, no deberia imprimir nada
+            foreach(Publicacion publicacion in publicacionesRodrigo){
+                Logger.LogInformation("Publicacion de Rodrigo: {0}", publicacion.Titulo);
+            }
+
+            Logger.LogInformation("Test IMainService.publicaciones(string rut) ok");            
         }
 
         void IDisposable.Dispose()
