@@ -14,9 +14,19 @@ namespace Publicaciones.Service
     public interface IMainService {
         void Add(Persona persona); 
 
+        void Add(Publicacion publicacion);
+
+        void Add(Autor autor);
+
         List < Persona > FindPersonas(string nombre);
 
+        List <Publicacion> Publicaciones(string rut);
+
         List <Persona> Personas();
+
+        List <Publicacion> Publicaciones();
+
+        List <Autor> Autores();
 
         void Initialize(); 
     }

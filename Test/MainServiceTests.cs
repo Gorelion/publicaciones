@@ -74,8 +74,12 @@ namespace Publicaciones.Service {
         [Fact]
         public void publicacionesTest(){
 
+            Logger.LogInformation("Testing IMainService.publicaciones(string rut) ..");
+            Service.Initialize();
+
             Publicacion publicacion1 = new Publicacion();
-            
+            publicacion1.Titulo = "publicacion1";
+            Service.Add(publicacion1);
 
         }
 
