@@ -91,8 +91,68 @@ namespace Publicaciones.Service {
             Logger.LogInformation("Testing IMainService.publicaciones(string rut) ..");
             Service.Initialize();
 
-            
+            //se obtiene la id de la primera ocurrencia (persona) de nombre Luis Felipe
+            string rutLufe = Service.FindPersonas("Luis Felipe").First().Rut;
 
+            //se obtiene la id de la primera ocurrencia (persona) de nombre Tomas
+            string rutTomas = Service.FindPersonas("Tomas").First().Rut;
+
+            //se obtiene la id de la primera ocurrencia (persona) de nombre Franco
+            string rutFranco = Service.FindPersonas("Franco").First().Rut;
+
+            //se obtiene la id de la primera ocurrencia (persona) de nombre Tomas
+            string rutRodrigo = Service.FindPersonas("Rodrigo").First().Rut;
+
+            //se obtiene la id de la primera ocurrencia (publicacion) de titulo publicacion1
+            int idPublicacion1 = Service.FindPublicaciones("publicacion1").First().IdPublicacion;
+
+            //se obtiene la id de la primera ocurrencia (publicacion) de titulo publicacion2
+            int idPublicacion2 = Service.FindPublicaciones("publicacion2").First().IdPublicacion;
+
+            //se obtiene la id de la primera ocurrencia (publicacion) de titulo publicacion3
+            int idPublicacion3 = Service.FindPublicaciones("publicacion3").First().IdPublicacion;
+
+            //lufe es autor de la publicacion 3
+            Autor autoria1 = new Autor();
+            autoria1.IdPersona = rutLufe.ToString();
+            autoria1.IdPublicacion = idPublicacion3;
+            Service.Add(autoria1);
+
+            //lufe es autor de la publicacion 2
+            Autor autoria2 = new Autor();
+            autoria2.IdPersona = rutLufe.ToString();
+            autoria2.IdPublicacion = idPublicacion2;
+            Service.Add(autoria2);
+
+            //tomas es autor de la publicacion 1
+            Autor autoria3 = new Autor();
+            autoria3.IdPersona = rutTomas.ToString();
+            autoria3.IdPublicacion = idPublicacion1;
+            Service.Add(autoria3);
+
+            //tomas es autor de la publicacion 2
+            Autor autoria4 = new Autor();
+            autoria4.IdPersona = rutTomas.ToString();
+            autoria4.IdPublicacion = idPublicacion2;
+            Service.Add(autoria4);
+
+            //tomas es autor de la publicacion 3
+            Autor autoria5 = new Autor();
+            autoria5.IdPersona = rutTomas.ToString();
+            autoria5.IdPublicacion = idPublicacion3;
+            Service.Add(autoria5);
+
+            //framcp es autor de la publicacion 3
+            Autor autoria6 = new Autor();
+            autoria6.IdPersona = rutFranco.ToString();
+            autoria6.IdPublicacion = idPublicacion3;
+            Service.Add(autoria6);
+
+            //se obtienen las publicaciones en las que Rodrigo figura como autor
+            List<Publicacion> publicacionesRodrigo = Service.Publicaciones(rutRodrigo);
+
+            // Rodrigo no deberia tener publicaciones
+            Assert.True(publicacionesRodrigo.Count == 0);
         }
 
         void IDisposable.Dispose()

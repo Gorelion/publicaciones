@@ -5,7 +5,8 @@ namespace Publicaciones.Models
 {
     public class Persona
     {
-        public string Id { get; set; }
+        [Key]
+        public string Rut { get; set; }
 
         public string Nombre { get; set; }
 
@@ -32,7 +33,7 @@ namespace Publicaciones.Models
         
         public int IdPublicacion { get; set; }
 
-        public int IdPersona { get; set; }
+        public string IdPersona { get; set; }
 
     }
 }
