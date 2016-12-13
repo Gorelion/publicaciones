@@ -92,13 +92,31 @@ namespace Publicaciones.Service
             }
 
             Logger.LogDebug("Realizando Inicializacion .."); 
-            // Persona por defecto
-            Persona persona = new Persona(); 
-            persona.Nombre = "Diego"; 
-            persona.Apellido = "Urrutia"; 
+            // Personas por defecto
+            Persona persona1 = new Persona(); 
+            persona1.Nombre = "Luis Felipe"; 
+            persona1.Apellido = "Gutierrez"; 
 
-            // Agrego la persona al backend
-            this.Add(persona); 
+            // Agrego las personas al backend
+            this.Add(persona1);
+
+            Persona persona2 = new Persona(); 
+            persona2.Nombre = "Tomas"; 
+            persona2.Apellido = "Alegre";
+
+            this.Add(persona2);
+
+            Persona persona3 = new Persona(); 
+            persona3.Nombre = "Franco"; 
+            persona3.Apellido = "Aramayo";
+
+            this.Add(persona3);
+
+            Persona persona4 = new Persona(); 
+            persona4.Nombre = "Rodrigo"; 
+            persona4.Apellido = "Pizarro";
+
+            this.Add(persona4);
 
             foreach (Persona p in BackendContext.Personas) {
                 Logger.LogDebug("Persona: {0}", p); 

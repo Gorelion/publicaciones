@@ -61,11 +61,11 @@ namespace Publicaciones.Service {
             Assert.True(personas != null);
 
             // Debe haber solo 1
-            Assert.True(personas.Count == 1);
+            Assert.True(personas.Count == 4);
 
             // Print de la persona
             foreach(Persona persona in personas) {
-                Logger.LogInformation("Persona: {0}", persona);
+                Logger.LogInformation("Persona: {0}", persona.Nombre);
             }
 
             Logger.LogInformation("Test IMainService.Initialize() ok");
