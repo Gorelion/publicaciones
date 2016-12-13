@@ -74,6 +74,24 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        public void Add(Publicacion publicacion) {
+
+            // Guardo la publicacion en el Backend
+            BackendContext.Publicaciones.Add(publicacion); 
+
+            // Guardo los cambios
+            BackendContext.SaveChanges(); 
+        }
+
+        public void Add(Autor autor) {
+
+            // Guardo el autor en el Backend
+            BackendContext.Autores.Add(autor); 
+
+            // Guardo los cambios
+            BackendContext.SaveChanges(); 
+        }
+
         public List < Persona > FindPersonas(string nombre) {
             return BackendContext.Personas
                 .Where(p => p.Nombre.Contains(nombre))
@@ -83,6 +101,14 @@ namespace Publicaciones.Service
 
         public List<Persona> Personas() {
             return BackendContext.Personas.ToList();
+        }
+
+        public List<Publicacion> Publicaciones() {
+            return BackendContext.Publicaciones.ToList();
+        }
+
+        public List<Autor> Autores() {
+            return BackendContext.Autores.ToList();
         }
 
         public void Initialize() {
