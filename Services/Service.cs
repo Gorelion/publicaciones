@@ -130,14 +130,26 @@ namespace Publicaciones.Service
                 .ToList(); 
         }
 
+        /// <summary>
+        /// Metodo que retorna una lista con todas las personas en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de personas en la base de datos.</returns>
         public List<Persona> Personas() {
             return BackendContext.Personas.ToList();
         }
 
+        /// <summary>
+        /// Metodo que retorna una lista con todas las publicaciones en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de publicaciones en la base de datos.</returns>
         public List<Publicacion> Publicaciones() {
             return BackendContext.Publicaciones.ToList();
         }
 
+        /// <summary>
+        /// Metodo que retorna una lista con todos los autores en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de autores en la base de datos.</returns>
         public List<Autor> Autores() {
             return BackendContext.Autores.ToList();
         }
