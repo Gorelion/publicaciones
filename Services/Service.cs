@@ -77,6 +77,10 @@ namespace Publicaciones.Service
             Logger.LogInformation("MainService created"); 
         }
 
+        /// <summary>
+        /// Metodo que agrega una persona a la BD
+        /// </summary>
+        /// <param name="persona">persona a agregar</param>
         public void Add(Persona persona) {
 
             // Guardo la Persona en el Backend
@@ -86,6 +90,10 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        /// <summary>
+        /// Metodo que agrega una publicacion a la BD
+        /// </summary>
+        /// <param name="publicacion">publicacion a agregar</param>
         public void Add(Publicacion publicacion) {
 
             // Guardo la publicacion en el Backend
@@ -95,6 +103,10 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        /// <summary>
+        /// Metodo que agrega un autor
+        /// </summary>
+        /// <param name="autor">autor a agregar</param>
         public void Add(Autor autor) {
 
             // Guardo el autor en el Backend
