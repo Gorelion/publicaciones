@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 namespace Publicaciones.Models
-{
+{   
+    ///
+    /// Clase que se encarga de representar a una Persona
+    ///
     public class Persona
     {
         [Key]
@@ -25,7 +28,9 @@ namespace Publicaciones.Models
         public string Apellido { get; set; }
         
     }
-
+    ///
+    /// Clase que se encarga de representar a una Publicacion
+    ///
     public class Publicacion
     {
         [Key]
@@ -72,7 +77,9 @@ namespace Publicaciones.Models
         public string AreaDesarrollo { get; set; }
         
     }
-
+    ///
+    /// Clase que se encarga de representara un Autor (Se genera cuando Persona hace una Publicacion)
+    ///
     public class Autor
     {
         
