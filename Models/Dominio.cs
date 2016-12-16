@@ -183,6 +183,12 @@ namespace Publicaciones.Models
        //<returns></returns>
        public int IdIndice { get; set; }
 
+       ///<summary>
+       ///Nombre de la revista. Se asume que es unico.
+       //</summary>
+       //<returns></returns>
+       public string NomRevista { get; set; }
+
 
     }
 }
