@@ -103,6 +103,10 @@ namespace Publicaciones.Models
 
     }
     
+    ///<summary>
+    /// Clase que se encarga de representara una revista 
+    ///</summary>
+    ///<returns></returns>
     public class Revista
     {
         /// <summary>
