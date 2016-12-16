@@ -105,6 +105,22 @@ namespace Publicaciones.Models
         public string IdPersona { get; set; }
 
     }
+    
+    
+     public class Revista
+     {
+         /// <summary>
+         /// Nombre de la revista
+         /// </summary>
+         // <returns></returns>
+         public string Nombre { get; set; }
+         
+         /// <summary>
+         /// Indice de la revista
+         /// </summary>
+         // <returns></returns>
+         public string ISSN { get; set; }  
+     }
 
     ///<summary>
     /// Clase que se encarga de indexar las revistas.
