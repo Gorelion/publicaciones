@@ -75,10 +75,23 @@ namespace Publicaciones.Models
 
     public class Autor
     {
+        
+        /// <summary>
+        /// Fecha en que hizo la publicacion.
+        /// </summary>
+        // <returns></returns>
         public string Fecha { get; set; }
         
+        /// <summary>
+        /// Identificador unico de la publicacion.
+        /// </summary>
+        // <returns></returns>
         public int IdPublicacion { get; set; }
 
+        /// <summary>
+        /// Identificador de la persona responsable de la publicacion.
+        /// </summary>
+        // <returns></returns>
         public string IdPersona { get; set; }
 
     }
