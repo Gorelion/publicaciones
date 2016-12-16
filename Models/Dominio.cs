@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 namespace Publicaciones.Models
 {   
-    ///
+    ///<summary>
     /// Clase que se encarga de representar a una Persona
-    ///
+    ///</summary>
+    ///<returns></returns>
     public class Persona
     {
         [Key]
@@ -28,9 +29,10 @@ namespace Publicaciones.Models
         public string Apellido { get; set; }
         
     }
-    ///
+    ///<summary>
     /// Clase que se encarga de representar a una Publicacion
-    ///
+    ///</summary>
+    ///<returns></returns>
     public class Publicacion
     {
         [Key]
@@ -77,9 +79,10 @@ namespace Publicaciones.Models
         public string AreaDesarrollo { get; set; }
         
     }
-    ///
+    ///<summary>
     /// Clase que se encarga de representara un Autor (Se genera cuando Persona hace una Publicacion)
-    ///
+    ///</summary>
+    ///<returns></returns>
     public class Autor
     {
         
