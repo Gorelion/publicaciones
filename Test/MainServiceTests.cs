@@ -148,7 +148,7 @@ namespace Publicaciones.Service {
             autoria6.IdPublicacion = idPublicacion3;
             Service.Add(autoria6);
 
-            //se obtienen las publicaciones en las que Rodrigo figura como autor
+            //se obtienen las publicaciones en las que Lufe figura como autor
             List<Publicacion> publicacionesLufe = Service.Publicaciones(rutLufe);
 
             // publicacionesLufe debe ser != null
@@ -164,7 +164,7 @@ namespace Publicaciones.Service {
             //se obtienen las publicaciones en las que Tomas figura como autor
             List<Publicacion> publicacionesTomas = Service.Publicaciones(rutTomas);
 
-            // publicacionesLufe debe ser != null
+            // publicacionesTomas debe ser != null
             Assert.True(publicacionesTomas != null);
             //tomas solo ha sido autor de 3 publicaciones
             Assert.True(publicacionesTomas.Count == 3);

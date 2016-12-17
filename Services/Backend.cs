@@ -51,6 +51,11 @@ namespace Publicaciones.Backend {
         /// <returns>Link a la BD de Indice de Impacto</returns>
         public DbSet < ImpactoIndice > ImpactoIndices {get; set; }
 
+        /// <summary>
+        /// Representacion de las Revistas del Backend
+        /// </summary>
+        /// <returns>Link a la BD de Indice</returns>
+        public DbSet < Revista > Revistas {get; set; }
 
         ///<summary>
         ///Establecimiento de la clave primaria compuesta de Autor

@@ -18,6 +18,8 @@ namespace Publicaciones.Service
 
         void Add(Autor autor);
 
+        void Add(Revista revista);
+
         void Add(Indice indice);
 
         void Add(ImpactoIndice impactoIndice);
@@ -33,6 +35,8 @@ namespace Publicaciones.Service
         List <Publicacion> Publicaciones();
 
         List <Autor> Autores();
+
+        List <Revista> Revistas();
 
         List <Indice> Indices();
 
@@ -124,6 +128,16 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        public void Add(Revista revista) {
+
+           //Guardo la revista en el Backend.
+           BackendContext.Revistas.Add(revista);
+
+           //Guardo los cambios.
+           BackendContext.SaveChanges();
+
+        }
+
         /// <summary>
         /// Metodo que agrega un indice.
         /// </summary>
@@ -198,6 +212,14 @@ namespace Publicaciones.Service
         }
 
         /// <summary>
+        /// Metodo que retorna una lista con todas las revistas en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de autores en la base de datos.</returns>
+        public List<Revista> Revistas() {
+            return BackendContext.Revistas.ToList();
+        }
+
+        /// <summary>
         /// Metodo que retorna una lista con todos los indices en la base de datos, sin un orden especifico.
         /// </summary>
         /// <returns>Retorna la lista de indices en la base de datos.</returns>
@@ -262,6 +284,22 @@ namespace Publicaciones.Service
             foreach (Persona p in BackendContext.Personas) {
                 Logger.LogDebug("Persona: {0}", p); 
             }
+
+            Revista revista1 = new Revista();
+            revista1.Nombre = "Muy Interesante";
+            this.Add(revista1);
+
+            Revista revista2 = new Revista();
+            revista2.Nombre = "Conozca Mas";
+            this.Add(revista2);
+
+            Revista revista3 = new Revista();
+            revista3.Nombre = "Science";
+            this.Add(revista3);
+
+            publicacion1.NombreRevista = revista1.Nombre;
+            publicacion2.NombreRevista = revista2.Nombre;
+            publicacion3.NombreRevista = revista3.Nombre;
 
             Initialized = true;
 

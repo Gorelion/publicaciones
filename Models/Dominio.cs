@@ -77,6 +77,12 @@ namespace Publicaciones.Models
         /// </summary>
         /// <returns></returns>
         public string AreaDesarrollo { get; set; }
+
+        /// <summary>
+        /// Identificador de la revista asociada.
+        /// </summary>
+        // <returns></returns>
+        public string NombreRevista {get; set; }
         
     }
     ///<summary>
@@ -112,6 +118,14 @@ namespace Publicaciones.Models
     ///<returns></returns>
      public class Revista
      {
+        
+         [Key]
+         /// <summary>
+         /// Id de la revista
+         /// </summary>
+         // <returns></returns>
+         public string Id { get; set; }
+
          /// <summary>
          /// Nombre de la revista
          /// </summary>
@@ -119,7 +133,7 @@ namespace Publicaciones.Models
          public string Nombre { get; set; }
          
          /// <summary>
-         /// Indice de la revista
+         /// International Standard Serial Number
          /// </summary>
          // <returns></returns>
          public string ISSN { get; set; }  
