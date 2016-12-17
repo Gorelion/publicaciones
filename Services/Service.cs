@@ -150,13 +150,22 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        ///<summary>
+        /// Metodo que se encarga de buscar personas por el Nombre
+        ///</summary>
+        ///<param name="nombre">nombre de la persona a la cual se buscara</param>
+        ///<return>retorna una lista con las personas que coicidan el nombre</return>
         public List < Persona > FindPersonas(string nombre) {
             return BackendContext.Personas
                 .Where(p => p.Nombre.Contains(nombre))
                 .OrderBy(p => p.Nombre)
                 .ToList(); 
         }
-
+        ///<summary>
+        /// Metodo que se encarga de obtener las publicaciones segun su titulo
+        ///</summary>
+        ///<param name="titulo">titulo de la publicacion que se quiere buscar</param>
+        ///<returns>Lista con las publicaciones con el nombre ingresado</returns>
         public List < Publicacion > FindPublicaciones(string titulo) {
             return BackendContext.Publicaciones
                 .Where(p => p.Titulo.Contains(titulo))
