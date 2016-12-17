@@ -142,7 +142,7 @@ namespace Publicaciones.Service {
             autoria5.IdPublicacion = idPublicacion3;
             Service.Add(autoria5);
 
-            //framcp es autor de la publicacion 3
+            //Franco es autor de la publicacion 3
             Autor autoria6 = new Autor();
             autoria6.IdPersona = rutFranco.ToString();
             autoria6.IdPublicacion = idPublicacion3;
