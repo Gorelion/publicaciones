@@ -131,7 +131,7 @@ namespace Publicaciones.Service
         public void Add(Indice indice) {
 
             // Guardo el autor en el Backend
-            BackendContext.Indices.Add(impactoIndice); 
+            BackendContext.Indices.Add(indice); 
 
             // Guardo los cambios
             BackendContext.SaveChanges(); 
