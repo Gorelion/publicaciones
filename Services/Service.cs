@@ -18,6 +18,10 @@ namespace Publicaciones.Service
 
         void Add(Autor autor);
 
+        void Add(Indice indice);
+
+        void Add(ImpactoIndice impactoIndice);
+
         List < Persona > FindPersonas(string nombre);
 
         List <Publicacion> FindPublicaciones(string titulo); 
@@ -111,6 +115,32 @@ namespace Publicaciones.Service
 
             // Guardo el autor en el Backend
             BackendContext.Autores.Add(autor); 
+
+            // Guardo los cambios
+            BackendContext.SaveChanges(); 
+        }
+
+        /// <summary>
+        /// Metodo que agrega un indice.
+        /// </summary>
+        /// <param name="indice">Indice a agregar</param>
+        public void Add(Indice indice) {
+
+            // Guardo el autor en el Backend
+            BackendContext.Indices.Add(impactoIndice); 
+
+            // Guardo los cambios
+            BackendContext.SaveChanges(); 
+        }
+
+        /// <summary>
+        /// Metodo que agrega un indice de impacto.
+        /// </summary>
+        /// <param name="impactoIndice">Indice de impacto a agregar</param>
+        public void Add(ImpactoIndice impactoIndice) {
+
+            // Guardo el autor en el Backend
+            BackendContext.ImpactoIndices.Add(impactoIndice); 
 
             // Guardo los cambios
             BackendContext.SaveChanges(); 

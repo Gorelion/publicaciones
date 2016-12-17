@@ -39,6 +39,19 @@ namespace Publicaciones.Backend {
         /// <returns>Link a la BD de Autor</returns>
         public DbSet < Autor > Autores {get; set; }
 
+        /// <summary>
+        /// Representacion de los Indices del Backend
+        /// </summary>
+        /// <returns>Link a la BD de Indice</returns>
+        public DbSet < Indice > Indices {get; set; }
+
+        /// <summary>
+        /// Representacion de los Indices de Impacto del Backend
+        /// </summary>
+        /// <returns>Link a la BD de Indice de Impacto</returns>
+        public DbSet < ImpactoIndice > ImpactoIndices {get; set; }
+
+
         ///<summary>
         ///Establecimiento de la clave primaria compuesta de Autor
         ///</summary>
