@@ -132,6 +132,7 @@ namespace Publicaciones.Models
     public class Indice
     {
 
+       [Key]
        ///<summary>
        ///Identificador del indice.
        ///</summary>
@@ -153,6 +154,7 @@ namespace Publicaciones.Models
     public class ImpactoIndice
     {
 
+       [Key]
        ///<summary>
        ///Identificador del impacto.
        ///</summary>

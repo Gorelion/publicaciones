@@ -34,6 +34,10 @@ namespace Publicaciones.Service
 
         List <Autor> Autores();
 
+        List <Indice> Indices();
+
+        List <ImpactoIndice> ImpactoIndices();
+
         void Initialize(); 
     }
 
@@ -182,6 +186,22 @@ namespace Publicaciones.Service
         /// <returns>Retorna la lista de autores en la base de datos.</returns>
         public List<Autor> Autores() {
             return BackendContext.Autores.ToList();
+        }
+
+        /// <summary>
+        /// Metodo que retorna una lista con todos los indices en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de indices en la base de datos.</returns>
+        public List<Indice> Indices() {
+            return BackendContext.Indices.ToList();
+        }
+
+        /// <summary>
+        /// Metodo que retorna una lista con todos los indices de impacto en la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista de indices de impacto en la base de datos.</returns>
+        public List<ImpactoIndice> ImpactoIndices() {
+            return BackendContext.ImpactoIndices.ToList();
         }
 
         public void Initialize() {
