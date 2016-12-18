@@ -128,6 +128,10 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        /// <summary>
+        /// Metodo que agrega una revista
+        /// </summary>
+        /// <param name="revista">revista a agregar</param>
         public void Add(Revista revista) {
 
            //Guardo la revista en el Backend.
