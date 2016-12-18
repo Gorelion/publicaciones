@@ -289,6 +289,7 @@ namespace Publicaciones.Service
                 Logger.LogDebug("Persona: {0}", p); 
             }
 
+            //Se agregan las revistas por defecto
             Revista revista1 = new Revista();
             revista1.Nombre = "Muy Interesante";
             this.Add(revista1);
@@ -301,6 +302,7 @@ namespace Publicaciones.Service
             revista3.Nombre = "Science";
             this.Add(revista3);
 
+            //Se asigana una revista a cada publicacion
             publicacion1.NombreRevista = revista1.Nombre;
             publicacion2.NombreRevista = revista2.Nombre;
             publicacion3.NombreRevista = revista3.Nombre;
