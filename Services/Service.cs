@@ -28,6 +28,10 @@ namespace Publicaciones.Service
 
         List <Publicacion> FindPublicaciones(string titulo); 
 
+        Revista FindRevistaNombre(string nombre);
+
+        Revista FindRevistaCodigo(string codigo);
+
         List <Publicacion> Publicaciones(string rut);
 
         List <Persona> Personas();
@@ -179,6 +183,31 @@ namespace Publicaciones.Service
                 .OrderBy(p => p.Nombre)
                 .ToList(); 
         }
+
+        ///<summary>
+        ///Metodo que obtiene una revista por su nombre.
+        ///</summary>
+        ///<param name="nombre">Nombre de la revista</param>
+        ///<returns>La revista encontrada</returns>
+        public Revista FindRevistaNombre(string nombre){
+            return BackendContext.Revistas
+                .Where(r => r.Nombre.Contains(nombre))
+                .ToList()
+                .First();
+        }
+
+        ///<summary>
+        ///Metodo que obtiene una revista por su codigo.
+        ///</summary>
+        ///<param name="codigo">Codigo de la revista</param>
+        ///<returns>La revista encontrada</returns>
+        public Revista FindRevistaCodigo(string codigo){
+            return BackendContext.Revistas
+                .Where(r => r.Id.Contains(codigo))
+                .ToList()
+                .First();
+        }
+
         ///<summary>
         /// Metodo que se encarga de obtener las publicaciones segun su titulo
         ///</summary>
@@ -303,9 +332,9 @@ namespace Publicaciones.Service
             this.Add(revista3);
 
             //Se asigana una revista a cada publicacion
-            publicacion1.NombreRevista = revista1.Nombre;
-            publicacion2.NombreRevista = revista2.Nombre;
-            publicacion3.NombreRevista = revista3.Nombre;
+            publicacion1.IdRevista = revista1.Id;
+            publicacion2.IdRevista = revista2.Id;
+            publicacion3.IdRevista = revista3.Id;
 
             Initialized = true;
 

@@ -200,6 +200,60 @@ namespace Publicaciones.Service {
                 Logger.LogInformation("Publicacion de Rodrigo: {0}", publicacion.Titulo);
             }
 
+            //Probando que las publicaciones de Lufe estén en las revistas correctas.
+            List<string> nombresEsperadosRevistasLufe = new List<string>();
+            nombresEsperadosRevistasLufe.Add("Conozca Mas");
+            nombresEsperadosRevistasLufe.Add("Science");
+
+            List<String> nombresRealesRevistasLufe = new List<string>();
+
+            foreach(Publicacion publicacion in publicacionesLufe){
+
+                Revista revista = Service.FindRevistaCodigo(publicacion.IdRevista);
+                nombresRealesRevistasLufe.Add(revista.Nombre);
+
+            }
+
+            nombresEsperadosRevistasLufe.Sort();
+            nombresRealesRevistasLufe.Sort();
+            Assert.Equal(nombresEsperadosRevistasLufe,nombresRealesRevistasLufe);
+
+            //Probando que las publicaciones de Tomas estén en las revistas correctas.
+            List<string> nombresEsperadosRevistasTomas = new List<string>();
+            nombresEsperadosRevistasTomas.Add("Conozca Mas");
+            nombresEsperadosRevistasTomas.Add("Science");
+            nombresEsperadosRevistasTomas.Add("Muy Interesante");
+
+            List<String> nombresRealesRevistasTomas = new List<string>();
+
+            foreach(Publicacion publicacion in publicacionesTomas){
+
+                Revista revista = Service.FindRevistaCodigo(publicacion.IdRevista);
+                nombresRealesRevistasTomas.Add(revista.Nombre);
+
+            }
+
+            nombresEsperadosRevistasTomas.Sort();
+            nombresRealesRevistasTomas.Sort();
+            Assert.Equal(nombresEsperadosRevistasTomas,nombresRealesRevistasTomas);
+
+            //Probando que las publicaciones de Franco estén en las revistas correctas.
+            List<string> nombresEsperadosRevistasFranco = new List<string>();
+            nombresEsperadosRevistasFranco.Add("Science");
+
+            List<String> nombresRealesRevistasFranco = new List<string>();
+
+            foreach(Publicacion publicacion in publicacionesFranco){
+
+                Revista revista = Service.FindRevistaCodigo(publicacion.IdRevista);
+                nombresRealesRevistasFranco.Add(revista.Nombre);
+
+            }
+
+            nombresEsperadosRevistasFranco.Sort();
+            nombresRealesRevistasFranco.Sort();
+            Assert.Equal(nombresEsperadosRevistasFranco,nombresRealesRevistasFranco);
+
             Logger.LogInformation("Test IMainService.publicaciones(string rut) ok");            
         }
 

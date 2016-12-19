@@ -82,7 +82,7 @@ namespace Publicaciones.Models
         /// Identificador de la revista asociada.
         /// </summary>
         // <returns></returns>
-        public string NombreRevista {get; set; }
+        public string IdRevista {get; set; }
         
     }
     ///<summary>
