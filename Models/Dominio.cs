@@ -71,8 +71,11 @@ namespace Publicaciones.Models
         /// <summary>
         /// Identificador de la revista asociada.
         /// </summary>
-        // <returns></returns>
         public string IdRevista {get; set; }
+
+        ///<summary>
+        /// Nombre de la revista asociada
+        ///</summary>
         public string NombreRevista {get; set; }
         
     }

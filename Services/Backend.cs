@@ -6,6 +6,7 @@ namespace Publicaciones.Backend {
     /// <summary>
     /// Representacion de la base de datos.
     /// </summary>
+    ///<remarks>Esta clase se encarga de contener todos los datos de la BD y funciona como enlace entre la aplicacion y la BD</remarks>
     public class BackendContext : DbContext {
 
         /// <summary>

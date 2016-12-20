@@ -52,20 +52,22 @@ namespace Publicaciones.Service
     /// <summary>
     /// Implementacion de la interface IMainService
     /// </summary>
+    /// <remarks>Servicio principal de enlace con el sistema, esta clase implementa la interfaz IMainService</remarks>
     public class MainService:IMainService {
 
         /// <summary>
         /// Acceso al Backend
         /// </summary>
-        /// <returns></returns>
         private BackendContext BackendContext { get; set; }
 
         /// <summary>
         /// The Logger 
         /// </summary>
-        /// <returns></returns>
         private ILogger Logger { get; set; }
 
+        ///<summary>
+        /// Variable booleana que comprueba que el servicio este iniciado
+        ///</summary>
         private Boolean Initialized { get; set; }
 
         /// <summary>
@@ -268,6 +270,9 @@ namespace Publicaciones.Service
             return BackendContext.ImpactoIndices.ToList();
         }
 
+        ///<summary>
+        /// Metodo que se encarga de inicializar el servicio
+        ///</summary>
         public void Initialize() {
 
             if (Initialized) {
