@@ -24,9 +24,13 @@ namespace Publicaciones.Service
 
         void Add(ImpactoIndice impactoIndice);
 
+        void Add(Grado grado);
+
         List < Persona > FindPersonas(string nombre);
 
         List <Publicacion> FindPublicaciones(string titulo); 
+
+        List <Grado> FindGradosPersona(string rut);
 
         Revista FindRevistaNombre(string nombre);
 
@@ -39,6 +43,8 @@ namespace Publicaciones.Service
         List <Publicacion> Publicaciones();
 
         List <Autor> Autores();
+
+        List <Grado> Grados();
 
         List <Revista> Revistas();
 
@@ -174,6 +180,19 @@ namespace Publicaciones.Service
             BackendContext.SaveChanges(); 
         }
 
+        /// <summary>
+        /// Metodo que agrega un Grado a la base de datos.
+        /// </summary>
+        /// <param name="grado">Grado a agregar</param>
+        public void Add(Grado grado) {
+
+            // Guardo el autor en el Backend
+            BackendContext.Grados.Add(grado); 
+
+            // Guardo los cambios
+            BackendContext.SaveChanges(); 
+        }
+
         ///<summary>
         /// Metodo que se encarga de buscar personas por el Nombre
         ///</summary>
@@ -183,6 +202,17 @@ namespace Publicaciones.Service
             return BackendContext.Personas
                 .Where(p => p.Nombre.Contains(nombre))
                 .OrderBy(p => p.Nombre)
+                .ToList(); 
+        }
+
+        ///<summary>
+        /// Metodo que se encarga de buscar todos los grados de una persona por su rut.
+        ///</summary>
+        ///<param name="rut">Rut de la persona a la cual se buscara</param>
+        ///<return>retorna una lista con los grados que coicidan el rut</return>
+        public List < Grado > FindGradosPersona(string rut) {
+            return BackendContext.Grados
+                .Where(p => p.Rut.Contains(rut))
                 .ToList(); 
         }
 
@@ -244,6 +274,14 @@ namespace Publicaciones.Service
         /// <returns>Retorna la lista de autores en la base de datos.</returns>
         public List<Autor> Autores() {
             return BackendContext.Autores.ToList();
+        }
+
+        /// <summary>
+        /// Metodo que retorna una lista con todos los grados educativos de la base de datos, sin un orden especifico.
+        /// </summary>
+        /// <returns>Retorna la lista con los grados educativos en la base de datos.</returns>
+        public List<Grado> Grados(){
+            return BackendContext.Grados.ToList();
         }
 
         /// <summary>
@@ -340,6 +378,43 @@ namespace Publicaciones.Service
             publicacion1.IdRevista = revista1.Id;
             publicacion2.IdRevista = revista2.Id;
             publicacion3.IdRevista = revista3.Id;
+
+            //Se agregan los grados que se acepta para ser autor.
+
+            //Lufe es licenciado y master en ingeniería
+            Grado grado1 = new Grado();
+            grado1.Nombre = "Licenciado en Ingenieria";
+            grado1.Fecha = "20/10/15";
+            grado1.Rut = persona1.Rut;
+
+            Grado grado2 = new Grado();
+            grado2.Nombre = "Magister en Ingenieria";
+            grado1.Fecha = "30/11/16";
+            grado2.Rut = persona1.Rut;
+
+            //Tomas es licenciado en fisica.
+            Grado grado3 = new Grado();
+            grado3.Nombre = "Licenciado en Fisica";
+            grado3.Fecha = "12/05/16";
+            grado3.Rut = persona2.Rut;
+
+            //Franco es licenciado en quimica
+            Grado grado4 = new Grado();
+            grado4.Nombre = "Licenciado en Quimica";
+            grado4.Fecha = "17/09/16";
+            grado4.Rut = persona3.Rut;
+
+            //Rodrigo es licenciado en ingenieria
+            Grado grado5 = new Grado();
+            grado5.Nombre = "Licenciado en Ingenieria";
+            grado5.Fecha = "12/12/16";
+            grado5.Rut = persona4.Rut;
+
+            this.Add(grado1);
+            this.Add(grado2);
+            this.Add(grado3);
+            this.Add(grado4);
+            this.Add(grado5);
 
             Initialized = true;
 

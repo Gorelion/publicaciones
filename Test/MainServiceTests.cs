@@ -207,6 +207,7 @@ namespace Publicaciones.Service {
         public void revistasTest(){
 
             Service.Initialize();
+            Logger.LogInformation("Testing revistasTest() ..");
 
             //Se obtiene la id de la primera ocurrencia (persona) de nombre Luis Felipe
             string rutLufe = Service.FindPersonas("Luis Felipe").First().Rut;
@@ -325,8 +326,123 @@ namespace Publicaciones.Service {
             nombresRealesRevistasFranco.Sort();
             Assert.Equal(nombresEsperadosRevistasFranco,nombresRealesRevistasFranco);
 
-            Logger.LogInformation("Test passed");
+            Logger.LogInformation("revistasTest passed");
         
+        }
+
+        [Fact]
+        public void gradosTest(){
+
+            Service.Initialize();
+            Logger.LogInformation("Testing gradosTest() ..");
+
+            //Probando los grados de Lufe.
+            Persona persona1 = Service.FindPersonas("Luis Felipe").First();
+            List<Grado> gradosLufe = Service.FindGradosPersona(persona1.Rut);
+            
+            //Lufe tiene que tener 2 grados académicos.
+            Assert.True(gradosLufe.Count == 2);
+            
+            //Se guarda en una lista los nombres de los grados que tiene Lufe.
+            List<string> nombresGradosLufe = new List<string>();
+            foreach(Grado grado in gradosLufe){
+
+                nombresGradosLufe.Add(grado.Nombre);
+
+            }
+
+            //Grados esperados de Lufe.
+            List<string> gradosEsperadosLufe = new List<String>();
+            gradosEsperadosLufe.Add("Licenciado en Ingenieria");
+            gradosEsperadosLufe.Add("Magister en Ingenieria");
+
+            nombresGradosLufe.Sort();
+            gradosEsperadosLufe.Sort();
+
+            Assert.Equal(nombresGradosLufe,gradosEsperadosLufe);
+
+            //*****************************************************************
+
+
+            //Probando los grados de Tomas.
+            Persona persona2 = Service.FindPersonas("Tomas").First();
+            List<Grado> gradosTomas = Service.FindGradosPersona(persona2.Rut);
+            
+            //Tomas tiene que tener 1 grados académico.
+            Assert.True(gradosTomas.Count == 1);
+            
+            //Se guarda en una lista los nombres de los grados que tiene Tomas.
+            List<string> nombresGradosTomas= new List<string>();
+            foreach(Grado grado in gradosTomas){
+
+                nombresGradosTomas.Add(grado.Nombre);
+
+            }
+
+            //Grados esperados de Tomas.
+            List<string> gradosEsperadosTomas = new List<String>();
+            gradosEsperadosTomas.Add("Licenciado en Fisica");
+
+            nombresGradosTomas.Sort();
+            gradosEsperadosTomas.Sort();
+
+            Assert.Equal(nombresGradosTomas,gradosEsperadosTomas);
+
+            //**********************************************************************
+
+            //Probando los grados de Franco.
+            Persona persona3 = Service.FindPersonas("Franco").First();
+            List<Grado> gradosFranco = Service.FindGradosPersona(persona3.Rut);
+            
+            //Franco tiene que tener 1 grados académico.
+            Assert.True(gradosFranco.Count == 1);
+            
+            //Se guarda en una lista los nombres de los grados que tiene Franco.
+            List<string> nombresGradosFranco= new List<string>();
+            foreach(Grado grado in gradosFranco){
+
+                nombresGradosFranco.Add(grado.Nombre);
+
+            }
+
+            //Grados esperados de Franco.
+            List<string> gradosEsperadosFranco = new List<String>();
+            gradosEsperadosFranco.Add("Licenciado en Quimica");
+
+            nombresGradosFranco.Sort();
+            gradosEsperadosFranco.Sort();
+
+            Assert.Equal(nombresGradosFranco,gradosEsperadosFranco);
+
+            //****************************************************************************
+
+            //Probando los grados de Rodrigo.
+            Persona persona4 = Service.FindPersonas("Rodrigo").First();
+            List<Grado> gradosRodrigo = Service.FindGradosPersona(persona4.Rut);
+            
+            //Tomas tiene que tener 1 grados académico.
+            Assert.True(gradosRodrigo.Count == 1);
+            
+            //Se guarda en una lista los nombres de los grados que tiene Rodrigo.
+            List<string> nombresGradosRodrigo= new List<string>();
+            foreach(Grado grado in gradosRodrigo){
+
+                nombresGradosRodrigo.Add(grado.Nombre);
+
+            }
+
+            //Grados esperados de Rodrigo.
+            List<string> gradosEsperadosRodrigo = new List<String>();
+            gradosEsperadosRodrigo.Add("Licenciado en Ingenieria");
+
+            nombresGradosRodrigo.Sort();
+            gradosEsperadosRodrigo.Sort();
+
+            Assert.Equal(nombresGradosRodrigo,gradosEsperadosRodrigo);
+
+            Logger.LogInformation("Prueba pasada");
+
+
         }
 
         void IDisposable.Dispose()

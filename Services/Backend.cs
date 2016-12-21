@@ -41,6 +41,12 @@ namespace Publicaciones.Backend {
         public DbSet < Autor > Autores {get; set; }
 
         /// <summary>
+        /// Representacion de los Grados del Backend
+        /// </summary>
+        /// <returns>Link a la BD de Grado</returns>
+        public DbSet < Grado > Grados {get; set; }
+
+        /// <summary>
         /// Representacion de los Indices del Backend
         /// </summary>
         /// <returns>Link a la BD de Indice</returns>

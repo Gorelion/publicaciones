@@ -102,6 +102,35 @@ namespace Publicaciones.Models
         public string IdPersona { get; set; }
 
     }
+
+    ///<summary>
+    /// Clase que implementa el grado educativo de una persona o autor.
+    /// </summary>
+    public class Grado
+    {
+
+        [Key]
+        /// <summary>
+        /// Id del grado.
+        // </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Nombre del grado.
+        // </summary>
+        public string Nombre {get; set; }
+
+        ///
+        /// Fecha en que obtuvo el grado.
+        // </summary>
+        public string Fecha {get; set; }
+
+        /// <summary>
+        /// Rut de la persona o autor que tiene el grado.
+        // </summary>
+        public string Rut {get; set; }
+
+    }
     
     ///<summary>
     /// Clase implementa revista
